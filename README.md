@@ -1,2 +1,1 @@
-# CowBull
-Guess the number
+I am trying to make a simple guess the number (cow bull) game. I will work daily on this game till I achieve what I want and host it as well. It will be a multiplayer game where you can play with your friend and provide a nice little documentation regarding the game.
