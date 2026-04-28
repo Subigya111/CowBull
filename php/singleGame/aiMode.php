@@ -56,7 +56,7 @@ if (!isset($_SESSION['history'])) {
     </h6>
 
     <h6 class="text-center">
-      <strong>Cow</strong> = Correct number, wrong position &nbsp;
+      <strong>Cow</strong> = Correct number, wrong position &;
       <strong>Bull</strong> = Correct number, correct position
     </h6>
 

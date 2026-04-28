@@ -52,7 +52,7 @@ session_start();
 
     <h6 class="mt-4 mb-4 text-center">
       Enter guesses and find the secret four-digit number set by 🤖.
-      <a href="help.php">Help??</a>
+      <a href="/php/singleGame/help.php">Help??</a>
     </h6>
 
     <h6 class="text-center">

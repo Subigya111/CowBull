@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "generateNumber.php";
+// require "generateNumber.php";
 if (!isset($_SESSION['history'])) {
     $_SESSION['history'] = [];
 }
@@ -56,7 +56,7 @@ if (!isset($_SESSION['history'])) {
       <h6 class=" text-center mb-4">
       Set a secret number for your friend to guess. Your friend will do the same.</h6>
       <h6 class=" text-center mb-4">
-         Try to guess each other's number. <a href="help.php">Help??</a>
+         Try to guess each other's number. <a href="/php/singleGame/help.php">Help??</a>
           </h6>
   
 <div class="d-flex flex-column align-items-center m-5 pt-3"
