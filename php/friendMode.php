@@ -58,14 +58,19 @@ if (!isset($_SESSION['history'])) {
       <h6 class=" text-center mb-4">
          Try to guess each other's number. <a href="help.php">Help??</a>
           </h6>
-          <div class="d-flex flex-column justify-content-center align-items-center m-5"
+          <div class="d-flex flex-column  align-items-center m-5 pt-3"
     style="width:40%; height:40%; box-shadow: 0px 4px 10px 1px gray; background: #A39B9B;">
-      <button type="submit" form="aiForm" class="btn btn-primary w-50 mb-3">Play with AI 🤖</button>
+      <button type="submit" form="aiForm" class="btn btn-primary w-50 mb-4 mt-4 ">Set Game Code </button>
       <form id="aiForm" action="php/aiMode.php" method="POST"></form>
-      <button class="btn btn-secondary w-51 mb-3" form="friendForm">Play with friend 👥</button>
-      <form id="friendForm" action="php/friendMode.php" method="POST"></form>
-      <button type="submit" form="helpForm" class="btn btn-info w-50">Help ❓</button>
-      <form id ="helpForm" action="php/help.php" method="POST"></form>
+      <h6> OR</h6>  
+      <form id="friendForm" action="php/friendMode.php" method="POST" class="mt-4 d-flex flex-column align-items-center">
+        <strong>Enter code to join a game:</strong>
+        <input style="text-align:center ; width:100px;" type="text" name="code" maxlength="4" class="form-control mt-2" required></form>
+      <button class="btn btn-secondary w-51 mb-3 mt-2" form="friendForm">Join</button>
+      
+
+</div>
+      
     </div>      
 <?php endif; ?>
   
