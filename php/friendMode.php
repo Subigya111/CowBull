@@ -58,16 +58,31 @@ if (!isset($_SESSION['history'])) {
       <h6 class=" text-center mb-4">
          Try to guess each other's number. <a href="help.php">Help??</a>
           </h6>
-          <div class="d-flex flex-column  align-items-center m-5 pt-3"
-    style="width:40%; height:40%; box-shadow: 0px 4px 10px 1px gray; background: #A39B9B;">
-      <button type="submit" form="aiForm" class="btn btn-primary w-50 mb-4 mt-4 ">Set Game Code </button>
-      <form id="aiForm" action="php/aiMode.php" method="POST"></form>
-      <h6> OR</h6>  
-      <form id="friendForm" action="php/friendMode.php" method="POST" class="mt-4 d-flex flex-column align-items-center">
-        <strong>Enter code to join a game:</strong>
-        <input style="text-align:center ; width:100px;" type="text" name="code" maxlength="4" class="form-control mt-2" required></form>
-      <button class="btn btn-secondary w-51 mb-3 mt-2" form="friendForm">Join</button>
-      
+  
+<div class="d-flex flex-column align-items-center m-5 pt-3"
+    style="width:40%; box-shadow: 0px 4px 10px 1px gray; background: #A39B9B; border-radius: 10px;">
+
+    <form action="generateGameCode.php" method="POST" 
+          class="d-flex flex-column align-items-center w-75 mt-3">
+        <input type="text" name="name" placeholder="Enter your name" 
+               class="form-control mb-2" required>
+        <button type="submit" class="btn btn-primary w-80">Set Game Code</button>
+    </form>
+
+    <div class="d-flex align-items-center w-75 my-3">
+        <hr class="flex-grow-1">
+        <span class="mx-2"><strong>OR</strong></span>
+        <hr class="flex-grow-1">
+    </div>
+
+    <form action="joinGame.php" method="POST" 
+          class="d-flex flex-column align-items-center w-75 mb-3">
+        <input type="text" name="name" placeholder="Enter your name" 
+               class="form-control mb-2" required>
+        <input type="text" name="code" placeholder="Enter game code" 
+               class="form-control mb-2" maxlength="4" required>
+        <button type="submit" class="btn btn-secondary w-30">Join 👥</button>
+    </form>
 
 </div>
       
