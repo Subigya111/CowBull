@@ -1,9 +1,6 @@
 <?php
 session_start();
-// require "generateNumber.php";
-// if (!isset($_SESSION['history'])) {
-//     $_SESSION['history'] = [];
-// }
+
 ?>
 
 <!DOCTYPE html>
@@ -51,8 +48,8 @@ session_start();
 <h4 class="p-3"><strong>🐮 CowBull 🐂</strong></h4>
 
     <h6 class="mt-4 mb-4 text-center">
-      Enter guesses and find the secret four-digit number set by 🤖.
-      <a href="/php/singleGame/help.php">Help??</a>
+      Enter guesses and find the secret four-digit number set by your friend.
+     
     </h6>
 
     <h6 class="text-center">
@@ -62,8 +59,7 @@ session_start();
 
     <h6 class="mt-4">Keep trying until you guess the correct number</h6>
     <?php
-    // require "displayGameCode.php";
-    echo $_SESSION['gameCode'];
+    require "displayGameCode.php";
 
     ?>
     <form action="compare.php" method="POST" class="mt-5 mb-5">
@@ -91,7 +87,6 @@ session_start();
 
   <div class="flex-fill">
   <?php
-//   require "guesses.php";
   
   ?>
   

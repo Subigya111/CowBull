@@ -1,10 +1,3 @@
-<?php
-session_start();
-// require "generateNumber.php";
-if (!isset($_SESSION['history'])) {
-    $_SESSION['history'] = [];
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,16 +30,7 @@ if (!isset($_SESSION['history'])) {
   <div class="d-flex  flex-column  align-items-center"
        style="width:50%; height:100vh; background:#DBDFFF; box-shadow: 0px 4px 10px 2px gray;">
 
-    
-    
-    <?php if (isset($_SESSION['won'])): ?>
-    <div class="alert alert-success mt-5 mb-5 text-center">
-        🎉 You guessed it! The number was <strong><?= $_SESSION['secret'] ?></strong>
-    </div>
-    
-    <button  form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>
-  <form  id="newgame"action="newgame.php" method="POST"> </form>
-<?php else: ?>
+
   
 <h4 class="p-3"><strong>🐮 CowBull 🐂</strong></h4>
 
@@ -87,38 +71,14 @@ if (!isset($_SESSION['history'])) {
 </div>
       
     </div>      
-<?php endif; ?>
+
   
 
     
         
- 
-
   </div>
 
 </div>
-
-
-
-<script>
-const inputs = document.querySelectorAll(".box");
-
-inputs.forEach((input, index) => {
-
-  input.addEventListener("input", function () {
-    if (this.value.length === 1 && index < inputs.length - 1) {
-      inputs[index + 1].focus();
-    }
-  });
-
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "Backspace" && this.value === "" && index > 0) {
-      inputs[index - 1].focus();
-    }
-  });
-
-});
-</script>
 
 </body>
 </html>
