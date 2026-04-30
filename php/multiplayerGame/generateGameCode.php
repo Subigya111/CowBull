@@ -2,7 +2,7 @@
 <?php
 session_start();
 // if (empty($_SESSION['gameCode'])) { // generate secret number only once
-$name = $_POST['name'];
+$name = $_POST['nameP1'];
 $letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";                                                           
 $digits = "0123456789";
 // force 1 letter and 1 digit
@@ -28,9 +28,9 @@ $game = [
     'player2'  => null
 ];
 
-file_put_contents("../../games/$code.json", json_encode($game));
+file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT));
 
-header("Location:mainGame.php");
+header("Location:setSecretP1.php");
 
 exit();
 

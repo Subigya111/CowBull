@@ -48,7 +48,7 @@
 
     <form action="generateGameCode.php" method="POST" 
           class="d-flex flex-column align-items-center w-75 mt-3">
-        <input type="text" name="name" placeholder="Enter your name" 
+        <input type="text" name="nameP1" placeholder="Enter your name" 
                class="form-control mb-2" required>
         <button type="submit" class="btn btn-primary w-80">Set Game Code</button>
     </form>
@@ -61,7 +61,7 @@
 
     <form action="joinGame.php" method="POST" 
           class="d-flex flex-column align-items-center w-75 mb-3">
-        <input type="text" name="name" placeholder="Enter your name" 
+        <input type="text" name="nameP2" placeholder="Enter your name" 
                class="form-control mb-2" required>
         <input type="text" name="code" placeholder="Enter game code" 
                class="form-control mb-2" maxlength="4" required>
