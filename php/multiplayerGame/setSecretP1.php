@@ -33,7 +33,7 @@ session_start();
     require 'displayGameCode.php'   ;
     ?>
     <h6 class="mt-5" >Set a secret number for your friend to guess it. </h6>
-    <form action="compare.php" method="POST" class=" mb-5">
+    <form action="getSecretP1.php" method="POST" class=" mb-5">
         <input class="box" type="text" name="d1" maxlength="1" required>
         <input class="box" type="text" name="d2" maxlength="1" required>
         <input class="box" type="text" name="d3" maxlength="1" required>
@@ -43,6 +43,25 @@ session_start();
     
   </div>
 </div>
+<script>
+const inputs = document.querySelectorAll(".box");
+
+inputs.forEach((input, index) => {
+
+  input.addEventListener("input", function () {
+    if (this.value.length === 1 && index < inputs.length - 1) {
+      inputs[index + 1].focus();
+    }
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Backspace" && this.value === "" && index > 0) {
+      inputs[index - 1].focus();
+    }
+  });
+
+});
+</script>
 </body>
 </html>
 
