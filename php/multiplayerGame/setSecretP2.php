@@ -37,6 +37,15 @@ session_start();
       </div>
         
     <h6 class="mt-5" >Set a secret number for <?php echo $_SESSION['username']?>  to guess it. </h6>
+    <?php if (isset($_SESSION['errorP2'])) { ?>
+        <div class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert">
+          <?php 
+            echo $_SESSION['errorP2'];
+            unset($_SESSION['errorP2']);
+          ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      <?php } ?>
     <form action="getSecretP2.php" method="POST" class=" mb-5">
         <input class="box" type="text" name="b1" maxlength="1" required>
         <input class="box" type="text" name="b2" maxlength="1" required>

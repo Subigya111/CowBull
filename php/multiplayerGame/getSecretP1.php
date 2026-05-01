@@ -11,8 +11,8 @@ session_start();
     if( count(array_unique(str_split($secretP1))) != 4){   //splits the array into digits and counts 
                                                                 //number of unique characters
         
-        $_SESSION['error'] = "No duplicate digits allowed. Please set a valid number";
-        header("Location:mainGameP1.php");
+        $_SESSION['errorP1'] = "No duplicate digits allowed. Set the number again.";
+        header("Location:setSecretP1.php");
         exit();
     }
     $_SESSION['secretP1']=$secretP1;

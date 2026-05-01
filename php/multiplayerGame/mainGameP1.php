@@ -60,9 +60,7 @@ if (!isset($_SESSION['history'])) {
     </h6>
 
     <h6 class="mt-4">Keep trying until you guess the correct number</h6>
-    <?php
-    // require "duplicatedigit.php";
-    ?>
+       
     <form action="compareP1.php" method="POST" class="mt-5 mb-5">
         <input class="box" type="text" name="d1" maxlength="1" required>
         <input class="box" type="text" name="d2" maxlength="1" required>

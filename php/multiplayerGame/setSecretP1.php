@@ -33,7 +33,16 @@ session_start();
     require 'displayGameCode.php'   ;
     ?>
     <h6 class="mt-5" >Set a secret number for your friend to guess it. </h6>
-    <form action="getSecretP1.php" method="POST" class=" mb-5">
+     <?php if (isset($_SESSION['errorP1'])) { ?>
+        <div class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert">
+          <?php 
+            echo $_SESSION['errorP1'];
+            unset($_SESSION['errorP1']);
+          ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      <?php } ?>
+    <form action="getSecretP1.php" method="POST" class=" mt-3 mb-5">
         <input class="box" type="text" name="a1" maxlength="1" required>
         <input class="box" type="text" name="a2" maxlength="1" required>
         <input class="box" type="text" name="a3" maxlength="1" required>
