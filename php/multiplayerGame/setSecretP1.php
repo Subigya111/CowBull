@@ -34,10 +34,10 @@ session_start();
     ?>
     <h6 class="mt-5" >Set a secret number for your friend to guess it. </h6>
     <form action="getSecretP1.php" method="POST" class=" mb-5">
-        <input class="box" type="text" name="d1" maxlength="1" required>
-        <input class="box" type="text" name="d2" maxlength="1" required>
-        <input class="box" type="text" name="d3" maxlength="1" required>
-        <input class="box" type="text" name="d4" maxlength="1" required>
+        <input class="box" type="text" name="a1" maxlength="1" required>
+        <input class="box" type="text" name="a2" maxlength="1" required>
+        <input class="box" type="text" name="a3" maxlength="1" required>
+        <input class="box" type="text" name="a4" maxlength="1" required>
         <button type="submit" class="btn btn-sm btn-success">Set</button>
     </form>
     
