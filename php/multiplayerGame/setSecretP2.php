@@ -30,13 +30,13 @@ session_start();
     </h6>
    <div class="alert alert-info alert-dismissible fade show text-center mt-3" role="alert">
         <?php 
-          echo "Hi, " . $_SESSION['name'] ;
+          echo "Hi, " . $_SESSION['nameP2'] ;
           echo ". Welcome to the game.";
         ?>
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
       </div>
         
-    <h6 class="mt-5" >Set a secret number for <?php echo $_SESSION['username']?>  to guess it. </h6>
+    <h6 class="mt-5" >Set a secret number for <?php echo $_SESSION['nameP1']?>  to guess it. </h6>
     <?php if (isset($_SESSION['errorP2'])) { ?>
         <div class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert">
           <?php 

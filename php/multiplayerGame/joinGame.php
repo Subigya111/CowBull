@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$name = $_POST['nameP2'];
+$nameP2= $_POST['nameP2'];
 $code = strtoupper($_POST['code']); // convert to uppercase just in case
 
 // check if game exists
@@ -22,7 +22,7 @@ if ($game['player2'] !== null) {
 
 // add player 2 to the game
 $game['player2'] = [
-    'name'    => $name,
+    'nameP2'    => $nameP2,
     'secret'  => null,
     'guesses' => []
 ];
@@ -36,9 +36,9 @@ file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT)
 // store in session
 $_SESSION['gameCode'] = $code;
 $_SESSION['role']     = 'player2';
-$_SESSION['name']     = $name;
+$_SESSION['nameP2']     = $nameP2;
 
 header("Location: setSecretP2.php");
-echo $name;
+// echo $name;
 exit();
 ?>

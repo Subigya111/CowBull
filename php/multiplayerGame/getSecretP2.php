@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+    $gamecode = $_SESSION['gameCode'];
+
     $b1 = $_POST['b1'];
     $b2 = $_POST['b2'];
     $b3 = $_POST['b3'];
@@ -15,6 +17,14 @@ session_start();
         header("Location:setSecretP2.php");
         exit();
     }
+    $game = json_decode(file_get_contents("../../games/$gamecode.json"), true);
+    $game['player2']['secret'] = $secretP2; // ← only updates secret, leaves rest intact
+        $game['status'] = 'playing';
+
+    file_put_contents("../../games/$gamecode.json", json_encode($game,JSON_PRETTY_PRINT));
+
+
+
    
     $_SESSION['secretP2']=$secretP2;
     header("Location: mainGameP2.php");
