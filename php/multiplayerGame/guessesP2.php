@@ -4,7 +4,7 @@
        style="width:50%; height:100vh; background:#DBDFFF; box-shadow: 0px 4px 10px 2px gray;">
        <div class="alert alert-info alert-dismissible fade show text-center mt-3" role="alert">
           <?php 
-            echo "You set " .$_SESSION['secretP2'] ." for your friend to guess";
+            echo "You set " .$_SESSION['secretP2'] ." for ". $_SESSION['nameP1']. " to guess";
 
           ?>
           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>

@@ -50,7 +50,7 @@ if (!isset($_SESSION['history'])) {
 <h4 class="p-3"><strong>🐮 CowBull 🐂</strong></h4>
 
     <h5 class="mt-4 mb-5 text-center">
-      Enter guesses and find the secret four-digit number set by your friend. 
+      Enter guesses and find the secret four-digit number set by <?php echo $_SESSION['nameP1']?> . 
       
     </h5>
 

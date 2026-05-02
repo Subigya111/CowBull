@@ -1,5 +1,9 @@
 <?php 
 session_start();
+$role = $_SESSION['role'];
+$code = $_SESSION['gameCode'];
+
+$game = json_decode(file_get_contents("../../games/$code.json"), true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +32,16 @@ session_start();
     <h4 class="p-3"><strong>🐮 CowBull 🐂</h4></strong>
     <h6 class="mt-4 mb-4">Enter guesses and find the secret four-digit number in less turns than your friend. 🎯
     </h6>
-   
+    <?php if ($game['status'] === 'waiting'): ?>
     <?php
     require 'displayGameCode.php'   ;
     ?>
-    <h6 class="mt-5" >Set a secret number for your friend to guess it. </h6>
+        <p class="text-muted mt-5">Waiting for opponent to join... ⏳</p>
+    </div>
+
+   
+  <?php elseif ($game['status'] === 'setting_secrets'): ?>
+    <h6 class="mt-5" >Set a secret number for <?php echo $_SESSION['nameP2']?> to guess it. </h6>
      <?php if (isset($_SESSION['errorP1'])) { ?>
         <div class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert">
           <?php 
@@ -42,7 +51,7 @@ session_start();
           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
       <?php } ?>
-    <form action="getSecretP1.php" method="POST" class=" mt-3 mb-5">
+    <form action="getSecretP1.php" method="POST" class=" mt-5 mb-5">
         <input class="box" type="text" name="a1" maxlength="1" required>
         <input class="box" type="text" name="a2" maxlength="1" required>
         <input class="box" type="text" name="a3" maxlength="1" required>
@@ -52,6 +61,8 @@ session_start();
     
   </div>
 </div>
+    <?php endif; ?>
+
 <script>
 const inputs = document.querySelectorAll(".box");
 

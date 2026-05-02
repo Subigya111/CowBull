@@ -46,7 +46,7 @@ session_start();
           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
       <?php } ?>
-    <form action="getSecretP2.php" method="POST" class=" mb-5">
+    <form action="getSecretP2.php" method="POST" class=" mt-5 mb-5">
         <input class="box" type="text" name="b1" maxlength="1" required>
         <input class="box" type="text" name="b2" maxlength="1" required>
         <input class="box" type="text" name="b3" maxlength="1" required>
