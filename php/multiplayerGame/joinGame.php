@@ -6,8 +6,8 @@ $code = strtoupper($_POST['code']); // convert to uppercase just in case
 
 // check if game exists
 if (!file_exists("../../games/$code.json")) {
-    $_SESSION['error'] = "Game not found!";
-    header("Location: ../multiplayerGame/mainGame.php");
+    $_SESSION['msg1'] = "Game not found!";
+    header("Location: friendMode.php");
     exit();
 }
 
@@ -15,8 +15,8 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
 
 // check if game already has two players
 if ($game['player2'] !== null) {
-    $_SESSION['error'] = "Game is already full!";
-    header("Location: ../multiplayerGame/mainGame.php");
+    $_SESSION['msg2'] = "Game is already full!";
+    header("Location: friendMode.php");
     exit();
 }
 

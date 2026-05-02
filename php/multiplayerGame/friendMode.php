@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +60,24 @@
         <span class="mx-2"><strong>OR</strong></span>
         <hr class="flex-grow-1">
     </div>
+        <?php if (isset($_SESSION['msg1'])) { ?>
+        <div class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert">
+          <?php 
+            echo $_SESSION['msg1'];
+            unset($_SESSION['msg1']);
+          ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      <?php } ?>
+      <?php if (isset($_SESSION['msg2'])) { ?>
+        <div class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert">
+          <?php 
+            echo $_SESSION['msg2'];
+            unset($_SESSION['msg2']);
+          ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      <?php } ?>
 
     <form action="joinGame.php" method="POST" 
           class="d-flex flex-column align-items-center w-75 mb-3">

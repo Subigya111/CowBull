@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+// if (empty($_SESSION['gameCode'])) { // generate secret number only once
 $name = $_POST['nameP1'];
 $letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";                                                           
 $digits = "0123456789";
