@@ -56,7 +56,7 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
         <input class="box" type="text" name="a2" maxlength="1" required>
         <input class="box" type="text" name="a3" maxlength="1" required>
         <input class="box" type="text" name="a4" maxlength="1" required>
-        <button type="submit" class="btn btn-sm btn-success">Set</button>
+        <button type="submit" class="btn btn-sm btn-success">Set 🔒</button>
     </form>
     
   </div>

@@ -19,7 +19,7 @@ session_start();
     }
     $game = json_decode(file_get_contents("../../games/$gamecode.json"), true);
     $game['player2']['secret'] = $secretP2; // ← only updates secret, leaves rest intact
-        $game['status'] = 'playing';
+    $game['status'] = 'playing';
 
     file_put_contents("../../games/$gamecode.json", json_encode($game,JSON_PRETTY_PRINT));
 

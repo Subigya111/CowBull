@@ -51,7 +51,7 @@ session_start();
         <input class="box" type="text" name="b2" maxlength="1" required>
         <input class="box" type="text" name="b3" maxlength="1" required>
         <input class="box" type="text" name="b4" maxlength="1" required>
-        <button type="submit" class="btn btn-sm btn-success">Set</button>
+        <button type="submit" class="btn btn-sm btn-success">Set 🔒</button>
     </form>
     
   </div>

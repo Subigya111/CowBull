@@ -2,8 +2,7 @@
 
 session_start();
     $gamecode = $_SESSION['gameCode'];
-    // var_dump($_SESSION);
-    // die();
+
     $a1 = $_POST['a1'];
     $a2 = $_POST['a2'];
     $a3 = $_POST['a3'];
