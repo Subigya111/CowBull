@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['history'])) {
-    $_SESSION['history'] = [];
-}
+$role = $_SESSION['role'];
+$code = $_SESSION['gameCode'];
+$game = json_decode(file_get_contents("../../games/$code.json"), true);
 ?>
 
 <!DOCTYPE html>
@@ -37,17 +37,16 @@ if (!isset($_SESSION['history'])) {
        style="width:1%; height:100vh; background:#DBDFFF; box-shadow: 0px 4px 10px 2px gray;">
 
     
-    
-    <?php if (isset($_SESSION['won'])): ?>
-    <div class="alert alert-success mt-5 mb-5 text-center">
-        🎉 You guessed it! The number was <strong><?= $_SESSION['secret'] ?></strong>
-    </div>
-    
-    <button  form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>
-  <form  id="newgame"action="newgame.php" method="POST"> </form>
-<?php else: ?>
+   
   
 <h4 class="p-3"><strong>🐮 CowBull 🐂</strong></h4>
+    <?php if ($game['status'] === 'setting_secrets'): ?>
+
+        <p class="text-muted mt-5">Your secret was set. Waiting for <?php echo $_SESSION['nameP2']?> ⏳ to set secret number.</p>
+    </div>
+
+    
+  <?php elseif ($game['status'] === 'playing'): ?>
 
     <h5 class="mt-4 mb-5 text-center">
       Enter guesses and find the secret four-digit number set by <?php echo $_SESSION['nameP2']?>. 
@@ -75,7 +74,6 @@ if (!isset($_SESSION['history'])) {
 
 
     
-<?php endif; ?>
   
 
     
@@ -90,11 +88,11 @@ if (!isset($_SESSION['history'])) {
   
   ?>
   
-  
 </div>
 </div>
 
 
+  <?php endif; ?>
 
 <script>
 const inputs = document.querySelectorAll(".box");
