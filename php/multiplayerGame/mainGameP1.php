@@ -42,14 +42,14 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
 <h4 class="p-3"><strong>🐮 CowBull 🐂</strong></h4>
     <?php if ($game['status'] === 'setting_secrets'): ?>
 
-        <p class="text-muted mt-5">Your secret was set. Waiting for <?php echo $_SESSION['nameP2']?> ⏳ to set secret number.</p>
+        <p class="text-muted mt-5">Your secret was set. Waiting for <?php echo $_SESSION['nameP2']?>  to set secret number ⏳⏳⏳</p>
     </div>
 
     
   <?php elseif ($game['status'] === 'playing'): ?>
 
     <h5 class="mt-4 mb-5 text-center">
-      Enter guesses and find the secret four-digit number set by <?php echo $_SESSION['nameP2']?>. 
+      Enter guesses and find the secret four-digit number set by <?php echo $_SESSION['nameP2']?>
       
     </h5>
 
