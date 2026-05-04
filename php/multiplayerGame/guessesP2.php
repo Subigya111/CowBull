@@ -11,9 +11,9 @@
         </div>
     <h4 class="p-3"><strong>Guess History</strong></h4>
 
-    <?php if (!empty($_SESSION['history'])): ?>
+    <?php if (!empty($_SESSION['historyP2'])): ?>
       <ul class="mt-4 list-unstyled">
-        <?php foreach ($_SESSION['history'] as $index => $h): ?>
+        <?php foreach ($_SESSION['historyP2'] as $index => $h): ?>
           <li class="mb-2">
             <strong>#<?= $index + 1 ?>:</strong>
             <?= ($h['guess']) ?>

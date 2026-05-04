@@ -3,7 +3,9 @@ session_start();
 $role = $_SESSION['role'];
 $code = $_SESSION['gameCode'];
 $game = json_decode(file_get_contents("../../games/$code.json"), true);
-
+if (!isset($_SESSION['historyP2'])) {
+    $_SESSION['historyP2'] = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +60,14 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
     </h6>
 
     <h6 class="mt-4">Keep trying until you guess the correct number</h6>
-        
+            <?php if (isset($_SESSION['dupErrorP2'])) { ?>
+        <div class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert">
+          <?php 
+            echo $_SESSION['dupErrorP2'];      
+             unset($_SESSION['dupErrorP2'])      ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      <?php } ?>
     <form action="compareP2.php" method="POST" class="mt-5 mb-5">
         <input class="box" type="text" name="d1" maxlength="1" required>
         <input class="box" type="text" name="d2" maxlength="1" required>
