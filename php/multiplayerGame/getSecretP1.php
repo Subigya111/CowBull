@@ -19,7 +19,8 @@ session_start();
     }
     $game = json_decode(file_get_contents("../../games/$gamecode.json"), true);
     $game['player1']['secret'] = $secretP1; // ← only updates secret, leaves rest intact
-    file_put_contents("../../games/$gamecode.json", json_encode($game,JSON_PRETTY_PRINT));
+    // $game['turn']='player1';
+    // file_put_contents("../../games/$gamecode.json", json_encode($game,JSON_PRETTY_PRINT));
     if ($game['player1']['secret'] !== null && $game['player2']['secret'] !== null) {
        $game['status'] = 'playing'; // only runs when BOTH secrets are set
 }

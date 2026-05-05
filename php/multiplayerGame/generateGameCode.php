@@ -23,7 +23,6 @@ $game = [
     'player1'  => [
         'nameP1'    => $nameP1,
         'secret'  => null,
-        'guesses' => []
     ],
     'player2'  => null
 ];

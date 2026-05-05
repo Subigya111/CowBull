@@ -1,5 +1,7 @@
 <?php
-
+$role = $_SESSION['role'];
+$code = $_SESSION['gameCode'];
+$game = json_decode(file_get_contents("../../games/$code.json"), true);
 session_start();
     $secretP1=$_SESSION['secretP1'];
     $d1 = $_POST['d1'];
@@ -34,6 +36,8 @@ session_start();
     $_SESSION['historyP2'][] = [
     'guess' => $guessP2,
     'result' => "{$bull} <strong>Bull</strong> {$cow} <strong>Cow</strong>"];
+     $game['turn']='player1';
+    file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT));
     header("Location:mainGameP1.php");
     if ($bull == 4) {
     $_SESSION['wonP2'] = true;  // flag that game is won

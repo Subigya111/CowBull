@@ -24,7 +24,6 @@ if ($game['player2'] !== null) {
 $game['player2'] = [
     'nameP2'    => $nameP2,
     'secret'  => null,
-    'guesses' => []
 ];
 
 // update status

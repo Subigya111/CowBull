@@ -80,7 +80,7 @@ if (!isset($_SESSION['historyP1'])) {
     </form>
 
     <p> See your guesses and match it properly 👉🏽👉🏽👉🏽</p>
-     <button form="giveup"type="submit" class="btn btn-sm btn-danger mt-3">🔄 Give Up!</button>
+     <button onclick="return confirm('Are you sure, Pussy?')" form="giveup"type="submit" class="btn btn-sm btn-danger mt-3">🔄 Give Up!</button>
 <form id="giveup"action="newgame.php" method="POST"> </form> 
 
 
