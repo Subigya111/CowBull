@@ -1,6 +1,5 @@
 <?php
 session_start();
-$role = $_SESSION['role'];
 $code = $_SESSION['gameCode'];
 $game = json_decode(file_get_contents("../../games/$code.json"), true);
 if (!isset($_SESSION['historyP2'])) {
@@ -47,15 +46,22 @@ if (!isset($_SESSION['historyP2'])) {
         <p class="text-muted mt-5">Your secret was set. Waiting for <?php echo $_SESSION['nameP1']?>  to set secret number ⏳⏳⏳</p>
     </div>
    
-
+<?php elseif($game['turn']!=='player2'):?>
+            <p class="text-muted mt-5"> <?php echo $_SESSION['nameP1']?>  is guessing your number. Wait for your turn</p>
+             <div class="flex-fill">
+ 
+  
+  
+</div>
+    
   <?php elseif ($game['status'] === 'playing'): ?>
 
     <h5 class="mt-4 mb-5 text-center">
       Enter guesses and find the secret four-digit number set by <?php echo $_SESSION['nameP1']?> . 
       
     </h5>
+  <h6 class="text-center">
 
-    <h6 class="text-center">
       <strong>Cow</strong> = Correct number, wrong position &
       <strong>Bull</strong> = Correct number, correct position
     </h6>

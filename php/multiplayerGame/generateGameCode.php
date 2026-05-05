@@ -16,12 +16,10 @@ $_SESSION['gameCode']= $code;
 $_SESSION['nameP1']=$nameP1;
 $_SESSION['role']='player1';
 $game = [
-    'gameCode' => $code,
     'status'   => 'waiting',
     'turn'     => null,
     'winner'   => null,
     'player1'  => [
-        'nameP1'    => $nameP1,
         'secret'  => null,
     ],
     'player2'  => null

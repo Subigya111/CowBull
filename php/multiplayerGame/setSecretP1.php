@@ -1,6 +1,5 @@
 <?php 
 session_start();
-$role = $_SESSION['role'];
 $code = $_SESSION['gameCode'];
 
 $game = json_decode(file_get_contents("../../games/$code.json"), true);
@@ -56,7 +55,7 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
         <input class="box" type="text" name="a2" maxlength="1" required>
         <input class="box" type="text" name="a3" maxlength="1" required>
         <input class="box" type="text" name="a4" maxlength="1" required>
-        <button type="submit" class="btn btn-sm btn-success">Set 🔒</button>
+        <button onclick="return alert('Your secret number was set')"type="submit" class="btn btn-sm btn-success">Set 🔒</button>
     </form>
     
   </div>
