@@ -41,6 +41,9 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
     header("Location:mainGameP2.php");
     if ($bull == 4) {
     $game['winner']='player2';
+        $game['turn']='null';
+    $game['status']='game_over';
+
     file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT));
     header("Location: mainGameP2.php");
     exit();

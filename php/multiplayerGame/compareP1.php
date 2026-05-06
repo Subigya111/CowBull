@@ -41,10 +41,11 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
     'result' => "{$bull} <strong>Bull</strong> {$cow} <strong>Cow</strong>"];
     $game['turn']='player2';
     file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT));
-        header("Location: mainGameP1.php");
-    exit();
+    header("Location: mainGameP1.php");
     if ($bull == 4) {
     $game['winner']='player1';
+    $game['turn']='null';
+    $game['status']='game_over';
     file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT));
     header("Location: mainGameP1.php");
     exit();
