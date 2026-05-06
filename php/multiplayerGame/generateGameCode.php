@@ -14,7 +14,6 @@ $shuffled = str_shuffle($remaining);
 $code .= substr($shuffled, 0, 2);
 $_SESSION['gameCode']= $code;
 $_SESSION['nameP1']=$nameP1;
-$_SESSION['role']='player1';
 $game = [
     'status'   => 'waiting',
     'turn'     => null,

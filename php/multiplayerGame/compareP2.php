@@ -40,11 +40,13 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
     file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT));
     header("Location:mainGameP2.php");
     if ($bull == 4) {
-    $_SESSION['wonP2'] = true;  // flag that game is won
-    }
-
+    $game['winner']='player2';
+    file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT));
     header("Location: mainGameP2.php");
     exit();
 
+    }
+
+    
   
 ?>

@@ -34,10 +34,8 @@ file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT)
 
 // store in session
 $_SESSION['gameCode'] = $code;
-$_SESSION['role']     = 'player2';
 $_SESSION['nameP2']     = $nameP2;
 
 header("Location: setSecretP2.php");
-// echo $name;
 exit();
 ?>
