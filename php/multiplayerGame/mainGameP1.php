@@ -118,7 +118,7 @@ if (!isset($_SESSION['historyP1'])) {
     <!--  YOU LOST  -->
       <div class="alert alert-danger mt-5 mb-5 text-center">
         You lost! <strong><?= $_SESSION['nameP2'] ?></strong> guessed your number.
-        The number you were guessing was <strong><?= $_SESSION['secretP2'] ?></strong>
+        You were guessing : <strong><?= $_SESSION['secretP2'] ?></strong>
       </div>
 
       <button form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>

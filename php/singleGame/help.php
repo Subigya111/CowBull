@@ -44,6 +44,9 @@
             <li>Guess <strong>4901</strong> has 2 cows and 1 bulls (<strong>4 is present in correct position & 9,1 are present but different postion </strong>)</li>
             <li>Guess <strong>4619</strong> has 4 bulls (<strong>Game over!! </strong>)</li>
         </ul> 
+    <footer class="text-center py-2" style="background:black; color:white; position:fixed; bottom:0; width:50%;">
+    <p class="mb-0" style="font-size:13px;">🐮 CowBull 🐂 &copy; <?= date('Y') ?> | Made by <a href="https://github.com/Subigya111/CowBull" target="_blank" style="color:white;">Subigya</a></p>
+</footer>    
 </div>
 </body>
 </html>
