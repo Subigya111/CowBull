@@ -48,27 +48,24 @@ if (!isset($_SESSION['historyP1'])) {
         <p class="text-muted mt-5">
           <?php echo $_SESSION['nameP2'] ?> is guessing your number. Wait for your turn
         </p>
-        <p class="mt-5 mb-5" >See your guesses and match it properly 👉🏽👉🏽👉🏽</p>
+        <p class="mt-5 mb-5">See your guesses and match it properly 👉🏽👉🏽👉🏽</p>
         <button onclick="return confirm('Are you sure, Pussy?')" form="giveup" type="submit"
                 class="btn btn-sm btn-danger mt-3">
           🔄 Give Up!
         </button>
         <form id="giveup" action="newgame.php" method="POST"></form>
 
- <?php elseif($game['winner']==='player1'):?>
-              <div class="alert alert-success mt-5 mb-5 text-center">
-        🎉 You guessed it! The number set by <strong><?= $_SESSION['nameP2'] ?></strong> was <strong><?= $_SESSION['secretP2'] ?></strong>
-    </div>
-    
-    <button  form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>
-  <form  id="newgame"action="newgame.php" method="POST"> </form>
+      <?php elseif ($game['winner'] === 'player1'): ?>
+        <div class="alert alert-success mt-5 mb-5 text-center">
+          🎉 You guessed it! The number set by <strong><?= $_SESSION['nameP2'] ?></strong> was <strong><?= $_SESSION['secretP2'] ?></strong>
+        </div>
+
+        <button form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>
+        <form id="newgame" action="newgame.php" method="POST"></form>
       <?php elseif ($game['status'] === 'playing'): ?>
         <h5 class="mt-4 mb-5 text-center">
           Enter guesses and find the secret four-digit number set by <?php echo $_SESSION['nameP2'] ?>
         </h5>
-
-       
-
 
         <h6 class="text-center">
           <strong>Cow</strong> = Correct number, wrong position &

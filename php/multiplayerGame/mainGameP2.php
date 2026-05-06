@@ -63,7 +63,6 @@ if (!isset($_SESSION['historyP2'])) {
     
     <button  form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>
   <form  id="newgame"action="newgame.php" method="POST"> </form>
-
       <?php elseif ($game['status'] === 'playing'): ?>
         <h5 class="mt-4 mb-5 text-center">
           Enter guesses and find the secret four-digit number set by <?php echo $_SESSION['nameP1'] ?>
