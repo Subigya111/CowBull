@@ -48,6 +48,17 @@ if (!isset($_SESSION['historyP1'])) {
       <p class="text-muted mt-5">
         Your secret was set. Waiting for <?= $_SESSION['nameP2'] ?> to set secret number ⏳
       </p>
+       <script>
+    setInterval(function() {
+        fetch("poll.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.status !== 'setting_secrets') {
+                    location.reload();
+                }
+            });
+    }, 2000);
+</script>
 
     <?php elseif ($game['status'] === 'playing' && $game['turn'] === 'player1'): ?>
     <!--  YOUR TURN - SHOW GUESS FORM  -->

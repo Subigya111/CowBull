@@ -1,0 +1,12 @@
+{
+    "status": "game_over",
+    "turn": "null",
+    "winner": "player2",
+    "player1": {
+        "secret": "1246"
+    },
+    "player2": {
+        "nameP2": "pucar",
+        "secret": "1246"
+    }
+}

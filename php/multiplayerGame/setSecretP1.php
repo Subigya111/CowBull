@@ -37,7 +37,17 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
     ?>
         <p class="text-muted mt-5">Waiting for opponent to join... ⏳</p>
     </div>
-
+    <script>
+    setInterval(function() {
+        fetch("poll.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.status !== 'waiting') {
+                    location.reload();
+                }
+            });
+    }, 2000);
+</script>
    
   <?php elseif ($game['status'] === 'setting_secrets'): ?>
     <h6 class="mt-5" >Set a secret number for <?php echo $_SESSION['nameP2']?> to guess it. </h6>
