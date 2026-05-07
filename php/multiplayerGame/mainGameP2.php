@@ -48,7 +48,9 @@ if (!isset($_SESSION['historyP2'])) {
       <p class="text-muted mt-5">
         Your secret was set. Waiting for <?= $_SESSION['nameP1'] ?> to set secret number ⏳
       </p>
-       <script>
+      <!-- Polling script: Checks every 2 seconds if the game status has changed from 'setting_secrets'.
+           If it has, reloads the page to update the UI. This allows real-time updates without manual refresh. -->
+      <script>
     setInterval(function() {
         fetch("poll.php")
             .then(response => response.json())
@@ -62,6 +64,7 @@ if (!isset($_SESSION['historyP2'])) {
 
     <?php elseif ($game['status'] === 'playing' && $game['turn'] === 'player2'): ?>
     <!--  YOUR TURN - SHOW GUESS FORM  -->
+      
       <h5 class="mt-4 mb-4 text-center">
         Enter guesses and find the secret number set by <?= $_SESSION['nameP1'] ?>
       </h5>
@@ -88,13 +91,14 @@ if (!isset($_SESSION['historyP2'])) {
         <button type="submit" class="btn btn-sm btn-success">Guess 🤷🏾</button>
       </form>
 
-      <p>See your guesses and match it properly 👉🏽👉🏽👉🏽</p>
+      <p>See your guesses and match it properly 👉🏽👉🏽👉🏽</p> 
 
       <button onclick="return confirm('Are you sure?')" form="giveup" type="submit"
               class="btn btn-sm btn-danger mt-3">
         🔄 Give Up!
       </button>
       <form id="giveup" action="newgame.php" method="POST"></form>
+      
 
     <?php elseif ($game['status'] === 'playing' && $game['turn'] !== 'player2'): ?>
     <!--  OPPONENT'S TURN - WAIT  -->
@@ -114,6 +118,32 @@ if (!isset($_SESSION['historyP2'])) {
         🔄 Give Up!
       </button>
       <form id="giveup" action="newgame.php" method="POST"></form>
+      <!-- Polling script: Checks every 2 seconds if it's now player2's turn.
+           If it is, reloads the page to switch to the guessing UI. -->
+      <script>
+    setInterval(function() {
+        fetch("poll.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.turn === 'player2') {
+                    location.reload();
+                }
+            });
+    }, 2000);
+</script>
+      <!-- Polling script: Checks every 2 seconds if player1 has won the game.
+           If player1 is the winner, reloads the page to show the game over screen. -->
+      <script>
+    setInterval(function() {
+        fetch("poll.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.winner === 'player1') {
+                    location.reload();
+                }
+            });
+    }, 2000);
+</script>
 
     <?php elseif ($game['winner'] === 'player2'): ?>
     <!--  YOU WON  -->
@@ -134,8 +164,9 @@ if (!isset($_SESSION['historyP2'])) {
 
       <button form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>
       <form id="newgame" action="newgame.php" method="POST"></form>
-
+  
     <?php endif; ?>
+
 
   </div>
   <!-- End Left Side -->

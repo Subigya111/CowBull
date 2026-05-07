@@ -48,7 +48,9 @@ if (!isset($_SESSION['historyP1'])) {
       <p class="text-muted mt-5">
         Your secret was set. Waiting for <?= $_SESSION['nameP2'] ?> to set secret number ⏳
       </p>
-       <script>
+      <!-- Polling script: Checks every 2 seconds if the game status has changed from 'setting_secrets'.
+           If it has, reloads the page to update the UI. This allows real-time updates without manual refresh. -->
+      <script>
     setInterval(function() {
         fetch("poll.php")
             .then(response => response.json())
@@ -95,6 +97,7 @@ if (!isset($_SESSION['historyP1'])) {
         🔄 Give Up!
       </button>
       <form id="giveup" action="newgame.php" method="POST"></form>
+ 
 
     <?php elseif ($game['status'] === 'playing' && $game['turn'] !== 'player1'): ?>
     <!--  OPPONENT'S TURN - WAIT  -->
@@ -114,6 +117,32 @@ if (!isset($_SESSION['historyP1'])) {
         🔄 Give Up!
       </button>
       <form id="giveup" action="newgame.php" method="POST"></form>
+      <!-- Polling script: Checks every 2 seconds if it's now player1's turn.
+           If it is, reloads the page to switch to the guessing UI. -->
+      <script>
+    setInterval(function() {
+        fetch("poll.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.turn === 'player1') {
+                    location.reload();
+                }
+            });
+    }, 2000);
+</script>
+<!-- Polling script: Checks every 2 seconds if player2 has won the game.
+     If player2 is the winner, reloads the page to show the game over screen. -->
+<script>
+    setInterval(function() {
+        fetch("poll.php")
+            .then(response => response.json())
+            .then(data => {
+                if (data.winner === 'player2') {
+                    location.reload();
+                }
+            });
+    }, 2000);
+</script>
 
     <?php elseif ($game['winner'] === 'player1'): ?>
     <!--  YOU WON  -->
@@ -134,6 +163,7 @@ if (!isset($_SESSION['historyP1'])) {
 
       <button form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>
       <form id="newgame" action="newgame.php" method="POST"></form>
+      
 
     <?php endif; ?>
 
