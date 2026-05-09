@@ -4,22 +4,22 @@
 ## How to play:
 A secret four digit number is set with no repeating digits. You guess the number by entering four digits and the game responds with:
 
-Bull — correct digit in the correct position
-Cow — correct digit but in the wrong position
+- *Bull* — correct digit in the correct position
+- *Cow* — correct digit but in the wrong position
 
 Keep guessing until you get four Bulls,which means you have found the exact number.
-Multiplayer Mode
+### Multiplayer Mode
 One player creates a game and receives a unique four digit code. They share this code with their friend who joins using it. Both players then set a secret number for each other to guess. Players take turns guessing each other's number. The first player to correctly guess their opponent's number wins. The game updates automatically using polling so no manual refreshing is needed.
-Built With
+#### Built With
 
-PHP — game logic, session management, JSON file storage
-JavaScript — auto input focus, polling for real time updates
-Bootstrap 5 — UI and layout
+- PHP — game logic, session management, JSON file storage
+- JavaScript — auto input focus, polling for real time updates
+- Bootstrap 5 — UI and layout
 
-Features
+### Features
 
-Solo mode against the computer
-Real time two player mode using a shared game code
-Turn based gameplay with automatic screen updates
-Guess history tracked per player
-Input auto advances between digit boxes
+- Solo mode against the computer
+- Real time two player mode using a shared game code
+- Turn based gameplay with automatic screen updates
+- Guess history tracked per player
+- Input auto advances between digit boxes
