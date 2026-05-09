@@ -16,7 +16,7 @@ One player creates a game and receives a unique four digit code. They share this
 - JavaScript — auto input focus, polling for real time updates
 - Bootstrap 5 — UI and layout
 
-### Features
+## Features
 
 - Solo mode against the computer
 - Real time two player mode using a shared game code
