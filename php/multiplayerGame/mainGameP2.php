@@ -180,6 +180,7 @@ if (!isset($_SESSION['historyP2'])) {
 
 <script>
   const inputs = document.querySelectorAll(".box");
+  inputs[0].focus(); // ← add this line
 
   inputs.forEach((input, index) => {
     input.addEventListener("input", function () {

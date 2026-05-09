@@ -179,6 +179,8 @@ if (!isset($_SESSION['historyP1'])) {
 
 <script>
   const inputs = document.querySelectorAll(".box");
+  inputs[0].focus(); // ← add this line
+
 
   inputs.forEach((input, index) => {
     input.addEventListener("input", function () {

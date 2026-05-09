@@ -1,1 +1,3 @@
- # This is a simple, minimalist guess the number game, aka CowBull. Made using the core concepts of vanilla php 
+ # Guess the Number (CowBull) game
+ ## Overview:
+ A

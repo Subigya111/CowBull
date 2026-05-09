@@ -76,6 +76,7 @@ if (!isset($_SESSION['history'])) {
 
   <script>
     const inputs = document.querySelectorAll(".box");
+    inputs[0].focus(); // this line always puts the cursor on the first box 
 
     inputs.forEach((input, index) => {
       input.addEventListener("input", function () {
