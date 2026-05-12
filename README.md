@@ -4,8 +4,8 @@
 ## How to play:
 A secret four digit number is set with no repeating digits. You guess the number by entering four digits and the game responds with:
 
-- *Bull* — correct digit in the correct position
-- *Cow* — correct digit but in the wrong position
+- Bull — correct digit in the correct position
+- Cow — correct digit but in the wrong position
 
 Keep guessing until you get four Bulls,which means you have found the exact number.
 ## Multiplayer Mode

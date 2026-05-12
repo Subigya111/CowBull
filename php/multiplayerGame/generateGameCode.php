@@ -1,7 +1,6 @@
 
 <?php
 session_start();
-// if (empty($_SESSION['gameCode'])) { // generate secret number only once
 $nameP1 = $_POST['nameP1'];
 $letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";                                                           
 $digits = "0123456789";
@@ -15,13 +14,14 @@ $code .= substr($shuffled, 0, 2);
 $_SESSION['gameCode']= $code;
 $_SESSION['nameP1']=$nameP1;
 $game = [
-    
+    'code'=>$code,
     'status'   => 'waiting',
     'turn'     => null,
     'winner'   => null,
     'player1'  => [
         'secret'  => null,
         'nameP1'=>$nameP1,
+        
     ],
     'player2'  => null
 ];

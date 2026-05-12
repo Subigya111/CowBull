@@ -1,4 +1,8 @@
 
+<?php
+$code = $_SESSION['gameCode'];
+$game = json_decode(file_get_contents("../../games/$code.json"), true);
+?>
 <div class="d-flex justify-content-center">
   <div class="d-flex flex-column align-items-center"
        style="width:50%; height:100vh; background:#DBDFFF; box-shadow: 0px 4px 10px 2px gray;">
@@ -11,9 +15,9 @@
         </div>
     <h4 class="p-3"><strong>Guess History</strong></h4>
 
-    <?php if (!empty($_SESSION['historyP1'])): ?>
+    <?php if (!empty($game['player1']['guesses'])): ?>
       <ul class="mt-4 list-unstyled">
-        <?php foreach ($_SESSION['historyP1'] as $index => $h): ?>
+        <?php foreach ($game['player1'] as $index => $h): ?>
           <li class="mb-2">
             <strong>#<?= $index + 1 ?>:</strong>
             <?= ($h['guess']) ?>

@@ -36,9 +36,10 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
             }   
         }
     }
-    $_SESSION['historyP1'][] = [
+    $game['player1']['guesses'][] = [
     'guess' => $guessP1,
-    'result' => "{$bull} <strong>Bull</strong> {$cow} <strong>Cow</strong>"];
+    'result' => "{$bull} <strong>Bull</strong> {$cow} <strong>Cow</strong>"
+    ];
     $game['turn']='player2';
     file_put_contents("../../games/$code.json", json_encode($game,JSON_PRETTY_PRINT));
     header("Location: mainGameP1.php");
