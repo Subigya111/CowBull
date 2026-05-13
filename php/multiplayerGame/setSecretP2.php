@@ -58,6 +58,7 @@ session_start();
 </div>
 <script>
 const inputs = document.querySelectorAll(".box");
+inputs[0].focus();
 
 inputs.forEach((input, index) => {
 

@@ -33,7 +33,7 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
             }   
         }
     }
-    $game['player2'][] = [
+    $game['player2']['guesses'][] = [
     'guess' => $guessP2,
     'result' => "{$bull} <strong>Bull</strong> {$cow} <strong>Cow</strong>"
     ];

@@ -8,7 +8,7 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
        style="width:50%; height:100vh; background:#DBDFFF; box-shadow: 0px 4px 10px 2px gray;">
        <div class="alert alert-info alert-dismissible fade show text-center mt-3" role="alert">
           <?php 
-            echo "You set " .$_SESSION['secretP1'] ." for " . $_SESSION['nameP2'] . " to guess";
+            echo "You set " .$game['player1']['secret'] ." for " . $game['player2']['nameP2'] . " to guess";
 
           ?>
           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -17,7 +17,7 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
 
     <?php if (!empty($game['player1']['guesses'])): ?>
       <ul class="mt-4 list-unstyled">
-        <?php foreach ($game['player1'] as $index => $h): ?>
+        <?php foreach ($game['player1']['guesses'] as $index => $h): ?>
           <li class="mb-2">
             <strong>#<?= $index + 1 ?>:</strong>
             <?= ($h['guess']) ?>

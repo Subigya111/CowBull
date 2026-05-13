@@ -73,8 +73,9 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
     <?php endif; ?>
 
 <script>
-const inputs = document.querySelectorAll(".box");
 
+const inputs = document.querySelectorAll(".box");
+inputs[0].focus();
 inputs.forEach((input, index) => {
 
   input.addEventListener("input", function () {

@@ -22,8 +22,9 @@ if ($game['player2'] !== null) {
 
 // add player 2 to the game
 $game['player2'] = [
-    'nameP2'    => $nameP2,
     'secret'  => null,
+    'nameP2'    => $nameP2,
+    
 ];
 
 // update status
