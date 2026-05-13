@@ -1,4 +1,4 @@
- # Guess the Number (CowBull) game [cowbull.ct.ws]
+ # Guess the Number (CowBull) game [https://cowbull.ct.ws/]
  ## Overview:
  CowBull is a number guessing game built with core PHP, Bootstrap, and JavaScript. The game is available in two modes — a solo mode where you guess a secret number set by the computer, and a multiplayer mode where two players compete against each other in real time.
 ## How to play:
