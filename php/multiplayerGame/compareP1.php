@@ -6,7 +6,7 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
 
 
 
-    $secretP2=$_SESSION['secretP2'];
+    $secretP2=$game['player2']['secret'];
     $c1 = $_POST['c1'];
     $c2 = $_POST['c2'];
     $c3 = $_POST['c3'];

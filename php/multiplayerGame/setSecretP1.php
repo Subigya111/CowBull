@@ -50,7 +50,7 @@ $game = json_decode(file_get_contents("../../games/$code.json"), true);
 </script>
    
   <?php elseif ($game['status'] === 'setting_secrets'): ?>
-    <h6 class="mt-5" >Set a secret number for <?php echo $_SESSION['nameP2']?> to guess it. </h6>
+    <h6 class="mt-5" >Set a secret number for <?php echo $game['player2']['nameP2']?> to guess it. </h6>
      <?php if (isset($_SESSION['errorP1'])) { ?>
         <div class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert">
           <?php 

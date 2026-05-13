@@ -2,15 +2,15 @@
 session_start();
 
 if (!isset($_SESSION['gameCode'])) {
-    header("Location: ../../index.html");
+    header("Location: ../../index.php");
     exit();
 }
 
 $code = $_SESSION['gameCode'];
 $game = json_decode(file_get_contents("../../games/$code.json"), true);
 
-if (!isset($_SESSION['historyP1'])) {
-    $_SESSION['historyP1'] = [];
+if (!isset($game['player1']['guesses'])) {
+    $game['player1']['guesses'] = [];
 }
 ?>
 
@@ -46,7 +46,7 @@ if (!isset($_SESSION['historyP1'])) {
     <?php if ($game['status'] === 'setting_secrets'): ?>
     <!-- WAITING FOR OPPONENT TO SET SECRET -->
       <p class="text-muted mt-5">
-        Your secret was set. Waiting for <?= $_SESSION['nameP2'] ?> to set secret number ⏳
+        Your secret was set. Waiting for <?= $game['player2']['nameP2'] ?> to set secret number ⏳
       </p>
       <!-- Polling script: Checks every 2 seconds if the game status has changed from 'setting_secrets'.
            If it has, reloads the page to update the UI. This allows real-time updates without manual refresh. -->
@@ -65,7 +65,7 @@ if (!isset($_SESSION['historyP1'])) {
     <?php elseif ($game['status'] === 'playing' && $game['turn'] === 'player1'): ?>
     <!--  YOUR TURN - SHOW GUESS FORM  -->
       <h5 class="mt-4 mb-4 text-center">
-        Enter guesses and find the secret number set by <?= $_SESSION['nameP2'] ?>
+        Enter guesses and find the secret number set by <?= $game['player2']['nameP2'] ?>
       </h5>
 
       <h6 class="text-center">
@@ -107,7 +107,7 @@ if (!isset($_SESSION['historyP1'])) {
       </h6>
 
       <p class="text-muted mt-5">
-        <?= $_SESSION['nameP2'] ?> is guessing your number. Wait for your turn
+        <?= $game['player2']['nameP2'] ?> is guessing your number. Wait for your turn
       </p>
 
       <p class="mt-5 mb-5">See your guesses and match it properly 👉🏽👉🏽👉🏽</p>
@@ -147,8 +147,8 @@ if (!isset($_SESSION['historyP1'])) {
     <?php elseif ($game['winner'] === 'player1'): ?>
     <!--  YOU WON  -->
       <div class="alert alert-success mt-5 mb-5 text-center">
-        🎉 You guessed it! The number set by <strong><?= $_SESSION['nameP2'] ?></strong>
-        was <strong><?= $_SESSION['secretP2'] ?></strong>
+        🎉 You guessed it! The number set by <strong><?= $game['player2']['nameP2'] ?></strong>
+        was <strong><?= $game['player2']['secret'] ?></strong>
       </div>
 
       <button form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>
@@ -157,8 +157,8 @@ if (!isset($_SESSION['historyP1'])) {
     <?php elseif ($game['status'] === 'game_over'): ?>
     <!--  YOU LOST  -->
       <div class="alert alert-danger mt-5 mb-5 text-center">
-        You lost! <strong><?= $_SESSION['nameP2'] ?></strong> guessed your number.
-        You were guessing : <strong><?= $_SESSION['secretP2'] ?></strong>
+        You lost! <strong><?= $game['player2']['nameP2'] ?></strong> guessed your number.
+        You were guessing : <strong><?= $game['player2']['secret'] ?></strong>
       </div>
 
       <button form="newgame" type="submit" class="btn btn-success">🔄 Play Again</button>
