@@ -22,4 +22,4 @@ One player creates a game and receives a unique four digit code. They share this
 - Real time two player mode using a shared game code
 - Turn based gameplay with automatic screen updates
 - Guess history tracked per player
-- Input auto advances between digit boxes
+## To play the game you can visit cowbull.ct.ws
